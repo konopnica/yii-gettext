@@ -14,9 +14,12 @@ Prepares php gettext extension
 INSTALLATION
 ------------
 
-*. Clone this extension into /protected/extensions/
+*. Clone this package into protected/extensions/
 
-*. Add to protected/config/main.php:
+	$ git clone git://github.com/acerix/yii-gettext.git protected/extensions/gettext
+	
+
+*. Define component and preload in protected/config/main.php:
 	
 	...
 	
@@ -28,10 +31,13 @@ INSTALLATION
 	
 		'gettext'=>array(
 			'class' => 'ext.gettext.components.GetText',
-			'language' => 'fr_ca', // specify language_locale here (example: french_canada)
+			
+			// specify language_locale (example: french_canada) could be based on domain name, URI, cookie, etc
+			'language' => 'fr_ca',
 		),
 		
 		...
+
 
 
 USAGE
@@ -85,14 +91,12 @@ USAGE
 	NOTE: Translations should be saved as UTF-8
 
 
-*. Link or copy the .mo files to the location expected by gettext
+*. Link or copy the .mo files of each translation to the location expected by gettext
 
 		$ cd protected/extensions/gettext/locale
 		
 		$ mkdir -p fr_CA/LC_MESSAGES
 		$ ln -s ./fr_CA.mo fr_CA/LC_MESSAGES/yii.mo
-		
-		repeat for each translation...
 
 
 *. Restart webserver to apply new translations
