@@ -73,14 +73,4 @@ class GetText extends CApplicationComponent
 		return implode('_',$locale);
 	}
 
-	/**
-	 * Test if gettext is translating.
-	 */
-	static public function demo($id)
-	{
-		$locale = explode('_',$id);
-		if (isset($locale[1])) $locale[1] = strtoupper($locale[1]);
-		return implode('_',$locale);
-	}
-
 }
