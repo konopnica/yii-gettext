@@ -1,29 +1,16 @@
 <?php
 /**
- * GetText class file.
- * @author Dylan Ferris <dylan@kanux.org>
- * @link http://github.com/acerix/yii-gettext
- * @copyright Copyright &copy; Dylan Ferris 2012-
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- */
-
-
-/**
- * Sets the php locale and 
- *
- * @package ext.gettext
- * @version $Id: GetText.php 2012-04-22 acerix $
- * @link http://github.com/acerix/yii-gettext
- * @author Dylan Ferris <dylan@kanux.org>
- * @copyright Copyright &copy; Dylan Ferris 2012-
- * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
- */
-
-
-/**
  * GetText application component.
- * Used for registering php-GetText functionality.
+ * Sets the php locale and binds gettext domain
+ * 
+ * @package ext.gettext
+ * @link http://github.com/acerix/yii-gettext
+ * @author Dylan Ferris <dylan@kanux.org>
+ * @copyright Copyright &copy; Dylan Ferris 2012-
+ * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
+ * @version $Id: GetText.php 2012-04-22 acerix $
  */
+ 
 class GetText extends CApplicationComponent
 {
 	/**
@@ -32,7 +19,7 @@ class GetText extends CApplicationComponent
 	public $domain = 'yii';
 
 	/**
-	 * @var Language in canonical format.
+	 * @var Language in yii canonical format.
 	 */
 	public $language = 'en_us';
 
