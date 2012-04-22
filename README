@@ -62,7 +62,7 @@ USAGE
 	NOTE: Messages in source files should only use ASCII characters (no accents, etc) and are typically written in English.
 	
 
-	Read about gettext and best practices when defining message: 
+	Read about gettext and how to write messages that are easy to translate: 
 	
 		http://www.gnu.org/software/gettext/manual/gettext.html
 
@@ -80,23 +80,15 @@ USAGE
 		
 		Add a 'new translation project', then add the directory: protected/extensions/gettext/locale/
 	
-		The example translation (fr_CA.po) should now be listed in the catalog, double-click it
+		The example translation (fr_CA...yii.po) should now be listed in the catalog, double-click it
 
 		Use 'Catalog > Update Sources' to scan for new messages
 		
-		Use 'Save As' to create a copy of the template for each desired translation in the locale folder (eg: ru_RU.po, jp_JP.po, etc.)
+		Use 'Save As' to create a copy of the template for each desired translation (each needs the same directory structure as the example)
 		
-		poedit automatically generates the .mo files in the same folder when saving (eg: fr_CA.mo)
+		poedit automatically generates the .mo files in the same folder when saving
 	
 	NOTE: Translations should be saved as UTF-8
-
-
-*. Link or copy the .mo files of each translation to the location expected by gettext
-
-		$ cd protected/extensions/gettext/locale
-		
-		$ mkdir -p fr_CA/LC_MESSAGES
-		$ ln -s ./fr_CA.mo fr_CA/LC_MESSAGES/yii.mo
 
 
 *. Restart webserver to apply new translations
