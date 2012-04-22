@@ -32,8 +32,8 @@ INSTALLATION
 		'gettext'=>array(
 			'class' => 'ext.gettext.components.GetText',
 			
-			// specify language_locale (example: french_canada) could be based on domain name, URI, cookie, etc
-			'language' => 'fr_ca',
+			// specify language_locale, could be based on domain name, URI, cookie, etc
+			'language' => 'fr_ca', // means french_canada
 		),
 		
 		...
