@@ -5,9 +5,9 @@ Prepares php gettext extension
 
 
 	http://php.net/gettext
-	
+
 	http://www.gnu.org/software/gettext/
-	
+
 	http://github.com/acerix/yii-gettext
 
 
@@ -17,25 +17,25 @@ INSTALLATION
 *. Clone this package into protected/extensions/
 
 	$ git clone git://github.com/acerix/yii-gettext.git protected/extensions/gettext
-	
+
 
 *. Define component and preload in protected/config/main.php:
-	
+
 	...
-	
+
 	'preload'=>array('gettext','log'),
-	
+
 	...
 
 	'components'=>array(
-	
+
 		'gettext'=>array(
 			'class' => 'ext.gettext.components.GetText',
-			
+
 			// specify language_locale, could be based on domain name, URI, cookie, etc
 			'language' => 'fr_ca', // means french_canada
 		),
-		
+
 		...
 
 
@@ -46,29 +46,29 @@ USAGE
 *. Use gettext functions such as _($message) whenever displaying or defining a message.
 
 	Examples:
-	
-		<?php echo _('All Rights Reserved.') ?>
-		
-		<?php $button_name = _('Login') ?>
-		
-		<?php printf(_('Copyright &copy; %d %s.'), date('Y'), Yii::app()->name) ?><br/>
-		
-		
-	// php 5.4+ or shorttags allows this shorthand:
-		
-		<?=_('All Rights Reserved.')?>
-	
-		
-	NOTE: Messages in source files should only use ASCII characters (no accents, etc) and are typically written in English.
-	
 
-	Read about gettext and how to write messages that are easy to translate: 
-	
+		<?php echo _('All Rights Reserved.') ?>
+
+		<?php echo CHtml::submitButton(_('Login')); ?>
+
+		<?php printf(_('Copyright &copy; %d %s.'), date('Y'), Yii::app()->name) ?><br/>
+
+
+	// php 5.4+ or shorttags allows this shorthand:
+
+		<?=_('All Rights Reserved.')?>
+
+
+	NOTE: Messages in source files should only use ASCII characters (no accents, etc) and are typically written in English.
+
+
+	Read about gettext and how to write messages that are easy to translate:
+
 		http://www.gnu.org/software/gettext/manual/gettext.html
 
 
 	Read more about php's gettext functions:
-		
+
 		http://php.net/gettext
 
 
@@ -77,23 +77,23 @@ USAGE
 	This can be done automatically using poedit ( http://www.poedit.net/ ) or other gettext tools
 
 	Using poedit:
-		
+
 		Add a 'new translation project', then add the directory: protected/extensions/gettext/locale/
-	
+
 		The example translation (fr_CA...yii.po) should now be listed in the catalog, double-click it
 
 		Use 'Catalog > Update Sources' to scan for new messages
-		
+
 		Use 'Save As' to create a copy of the template for each desired translation (each needs the same directory structure as the example)
-		
+
 		poedit automatically generates the .mo files in the same folder when saving
-	
+
 	NOTE: Translations should be saved as UTF-8
 
 
 *. Restart webserver to apply new translations
 
 	NOTE: Gettext's cache cannot be disabled or cleared, so translations are only updated when the webserver (or php-fpm) is restarted
-	
-	A workaround is to change the gettext domain whenever a .mo file is updated ( doing so is not supported by this extension )	
-	
+
+	A workaround is to change the gettext domain whenever a .mo file is updated ( doing so is not supported by this extension )
+
