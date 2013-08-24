@@ -35,7 +35,7 @@ class GetText extends CApplicationComponent
 	{
 		$this->language = $this->getLocaleID($this->language);
 		if (!$this->locale_dir) $this->locale_dir = dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'locale';
-		setlocale(LC_ALL, $this->language);
+		setlocale(LC_ALL, $this->language.'.UTF-8');
 		header('Content-Language: '.str_replace('_', '-', $this->language));
 		$this->bindDomain();
 	}
@@ -61,3 +61,4 @@ class GetText extends CApplicationComponent
 	}
 
 }
+

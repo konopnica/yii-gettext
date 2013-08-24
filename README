@@ -32,8 +32,8 @@ INSTALLATION
 		'gettext'=>array(
 			'class' => 'ext.gettext.components.GetText',
 
-			// specify language_locale, could be based on domain name, URI, cookie, etc
-			'language' => 'fr_ca', // means french_canada
+			// specify language_locale (could be based on domain name, URI, cookie, etc.)
+			'language' => 'fr_ca', // eg. french_canada
 		),
 
 		...
@@ -51,15 +51,19 @@ USAGE
 
 		<?php echo CHtml::submitButton(_('Login')); ?>
 
-		<?php printf(_('Copyright &copy; %d %s.'), date('Y'), Yii::app()->name) ?><br/>
+		<?php printf(_('Copyright &copy; %d %s.'), date('Y'), Yii::app()->name) ?>
 
+	Use ngettext() to handle plurals:
 
-	// php 5.4+ or shorttags allows this shorthand:
+                <?php $n = rand(0,2); printf(ngettext('%s die', '%s dice', $n), $n); ?>
+	
+	And strftime() for dates/times:
+
+                <?php echo strftime(_('Generated on %A, %B %e, %Y at %l:%M:%S %P %Z')); ?>
+
+	php 5.4+ or shorttags allows this shorthand:
 
 		<?=_('All Rights Reserved.')?>
-
-
-	NOTE: Messages in source files should only use ASCII characters (no accents, etc) and are typically written in English.
 
 
 	Read about gettext and how to write messages that are easy to translate:
@@ -89,11 +93,4 @@ USAGE
 		poedit automatically generates the .mo files in the same folder when saving
 
 	NOTE: Translations should be saved as UTF-8
-
-
-*. Restart webserver to apply new translations
-
-	NOTE: Gettext's cache cannot be disabled or cleared, so translations are only updated when the webserver (or php-fpm) is restarted
-
-	A workaround is to change the gettext domain whenever a .mo file is updated ( doing so is not supported by this extension )
 
